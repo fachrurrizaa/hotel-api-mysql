@@ -68,9 +68,9 @@ exports.create = async (req, res) => {
 }
 
 
-exports.findOne = async (req, res, next) => {
+exports.findOne = async (req, res) => {
+    const id = parseInt(req.params.id, 10);
     try {
-        const id = parseInt(req.params.id, 10);
         const post = await prisma.post.findUnique({
             where: { id },
             include: {
