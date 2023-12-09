@@ -3,7 +3,7 @@ const cors = require("cors");
 const { PrismaClient } = require("@prisma/client");
 
 const app = express();
-const port = 5000;
+const PORT = process.env.PORT || 5000
 const prisma = new PrismaClient();
 
 app.use(cors());
@@ -26,6 +26,6 @@ require('./src/routes/email.routes')(app)
 require('./src/routes/post.routes')(app)
 require('./src/routes/booking.routes')(app)
 
-app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log("Server is running....")
 })
